@@ -279,7 +279,7 @@ window.finalizarPedido = () => {
     msg += `💰 *TOTAL DO PEDIDO:* R$ ${totalGeral.toFixed(2).replace(".", ",")}`;
 
     // Insira o número do whatsapp da sua loja aqui (DDI + DDD + Numero)
-    const numeroLoja = "55XXXXXXXXXXX"; 
+    const numeroLoja = "5531920027515"; 
     
     // Abre a API do WhatsApp
     const url = `https://api.whatsapp.com/send?phone=${numeroLoja}&text=${encodeURIComponent(msg)}`;
