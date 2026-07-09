@@ -76,89 +76,181 @@
             </div>
         </div>
 
-    </div> <button id="btn-carrinho-flutuante" onclick="abrirCheckout()">
+    </div> 
+    
+    <button id="btn-carrinho-flutuante" onclick="abrirCheckout()">
         🛒 Ver Carrinho
     </button>
 
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="fechar" onclick="fecharModal()">&times;</span>
-            <div class="wrapper-imagem-modal">
+        <div class="modal-content mui-card">
+            
+            <div class="modal-header-imagem">
                 <img id="modalImagem" class="modal-imagem" alt="Produto">
-            </div>
-            <h2 id="modalNome"></h2>
-            <p id="modalDescricao"></p>
-            <hr>
-            <h3>Adicionais</h3>
-            <div id="listaAcrescimos" class="lista-adicionais"></div>
-            <hr>
-            <div class="modal-footer-unificado">
-                <div class="quantidade-container">
-                    <button type="button" class="btn-qtd" onclick="diminuirQtd()">-</button>
-                    <span id="qtd">1</span>
-                    <button type="button" class="btn-qtd" onclick="aumentarQtd()">+</button>
+                <button type="button" class="mui-btn-fechar" onclick="fecharModal()">
+                    <img src="https://api.iconify.design/mdi/close.svg?color=%238a2846" alt="Fechar">
+                </button>
+                <div class="carrossel-indicadores">
+                    <span class="ponto ativo"></span>
+                    <span class="ponto"></span>
+                    <span class="ponto"></span>
                 </div>
-                <button class="btn-adicionar-carrinho" onclick="adicionarCarrinho()">
-                    <span>Adicionar ao Carrinho</span>
-                    <strong id="totalProduto">R$ 0,00</strong>
+            </div>
+
+            <div class="modal-corpo-detalhes">
+                <div class="mui-linha-titulo">
+                    <h2 id="modalNome">Torta Red Velvet</h2>
+                    <span id="precoPrincipalSimulado" class="mui-preco-destaque">R$ 28,90</span>
+                </div>
+                
+                <div class="mui-chips-container">
+                    <span class="mui-chip destaque">Mais vendido</span>
+                    <span class="mui-chip info">
+                        <img src="https://api.iconify.design/mdi/account-group.svg?color=%238a2846" alt="Pessoas">
+                        Serve 4 pessoas
+                    </span>
+                </div>
+
+                <p id="modalDescricao" class="mui-descricao"></p>
+            </div>
+
+            <hr class="mui-divisor">
+
+            <div class="modal-conteudo-selecionavel">
+                <div class="mui-secao-grupo">
+                    <h3>Escolha o tamanho</h3>
+                    <span class="mui-legenda">Obrigatório · Escolha 1 opção</span>
+                    
+                    <div class="mui-lista-opcoes">
+                        <div class="mui-opcao-card selecionado">
+                            <div class="mui-opcao-txt">
+                                <strong>Fatia individual</strong>
+                                <span>Serve 1 pessoa</span>
+                            </div>
+                            <span class="mui-opcao-preco">+ R$ 0,00</span>
+                        </div>
+                        <div class="mui-opcao-card">
+                            <div class="mui-opcao-txt">
+                                <strong>Inteira pequena</strong>
+                                <span>Serve 4 pessoas</span>
+                            </div>
+                            <span class="mui-opcao-preco">+ R$ 45,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mui-secao-grupo">
+                    <h3>Acréscimos</h3>
+                    <span class="mui-legenda">Opcional · Escolha quantos quiser</span>
+                    
+                    <div id="listaAcrescimos" class="lista-adicionais mui-lista-opcoes"></div>
+                </div>
+
+                <div class="mui-secao-grupo">
+                    <h3>Observações</h3>
+                    <textarea class="mui-textfield" placeholder="Ex: sem açúcar, escrever Feliz Aniversário..." rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer-unificado mui-footer-fixo">
+                <div class="quantidade-container mui-qtd-seletor">
+                    <button type="button" class="btn-qtd" onclick="diminuirQtd()">
+                        <img src="https://api.iconify.design/mdi/minus.svg?color=%23d6336c" alt="Menos">
+                    </button>
+                    <span id="qtd">1</span>
+                    <button type="button" class="btn-qtd" onclick="aumentarQtd()">
+                        <img src="https://api.iconify.design/mdi/plus.svg?color=%23d6336c" alt="Mais">
+                    </button>
+                </div>
+                <button class="btn-adicionar-carrinho mui-btn-principal" onclick="adicionarCarrinho()">
+                    <span>Adicionar · <strong id="totalProduto">R$ 0,00</strong></span>
                 </button>
             </div>
+
         </div>
     </div>
 
     <div id="modalCheckout" class="modal">
-        <div class="modal-content checkout-content">
-            <span class="fechar" onclick="fecharCheckout()">&times;</span>
-            <h2>Seu Carrinho</h2>
+        <div class="modal-content mui-card checkout-content">
             
-            <div id="itens-carrinho-lista"></div>
-            
-            <div class="total-checkout-box">
-                <span>Total dos Produtos:</span>
-                <strong id="total-geral-checkout">R$ 0,00</strong>
+            <div class="mui-carrinho-header">
+                <h2 class="mui-carrinho-titulo">Seu Carrinho</h2>
+                <button type="button" class="mui-btn-fechar-checkout" onclick="fecharCheckout()">
+                    <img src="https://api.iconify.design/mdi/close.svg?color=%238a2846" alt="Fechar">
+                </button>
             </div>
 
-            <hr>
+            <hr class="mui-divisor" style="margin: 0 20px;">
 
-            <h2>Forma de Envio</h2>
-            <div class="opcao-envio">
-                <label><input type="radio" name="tipoEnvio" value="entrega" checked onchange="alternarFormulario()"> 🛵 Entrega</label>
-                <label><input type="radio" name="tipoEnvio" value="retirada" onchange="alternarFormulario()"> 🛍️ Retirar no Local</label>
-            </div>
-
-            <form id="form-pedido" onsubmit="event.preventDefault(); finalizarPedido();">
-                <div class="campo-grupo">
-                    <label>Nome Completo:</label>
-                    <input type="text" id="cliente-nome" required placeholder="Digite seu nome">
-                </div>
+            <div class="modal-conteudo-selecionavel">
                 
-                <div class="campo-grupo">
-                    <label>Telefone de Contato:</label>
-                    <input type="tel" id="cliente-telefone" required placeholder="(00) 00000-0000">
+                <div id="itens-carrinho-lista" class="mui-carrinho-lista"></div>
+                
+                <div class="total-checkout-box mui-resumo-total-box">
+                    <span>Total dos Produtos:</span>
+                    <strong id="total-geral-checkout">R$ 0,00</strong>
                 </div>
 
-                <div id="campos-entrega">
-                    <div class="campo-grupo">
-                        <label>CEP:</label>
-                        <input type="text" id="cliente-cep" placeholder="00000-000">
+                <hr class="mui-divisor" style="margin: 15px 0;">
+
+                <div class="mui-secao-grupo">
+                    <h3>Forma de Envio</h3>
+                    <div class="opcao-envio mui-envio-grupo">
+                        <label class="mui-radio-card">
+                            <input type="radio" name="tipoEnvio" value="entrega" checked onchange="alternarFormulario()"> 
+                            <span>🛵 Entrega</span>
+                        </label>
+                        <label class="mui-radio-card">
+                            <input type="radio" name="tipoEnvio" value="retirada" onchange="alternarFormulario()"> 
+                            <span>🛍️ Retirar no Local</span>
+                        </label>
                     </div>
-                    <div class="campo-grupo">
-                        <label>Endereço Completo (Rua, Número, Bairro):</label>
-                        <input type="text" id="cliente-endereco" placeholder="Ex: Rua das Flores, 123 - Bairro Centro">
+                </div>
+
+                <form id="form-pedido" onsubmit="event.preventDefault(); finalizarPedido();">
+                    
+                    <div class="mui-secao-grupo">
+                        <h3>Seus Dados</h3>
+                        <div class="mui-campo-wrapper">
+                            <label for="cliente-nome">Nome Completo</label>
+                            <input type="text" id="cliente-nome" class="mui-input-field" required placeholder="Digite seu nome">
+                        </div>
+                        
+                        <div class="mui-campo-wrapper">
+                            <label for="cliente-telefone">Telefone de Contato</label>
+                            <input type="tel" id="cliente-telefone" class="mui-input-field" required placeholder="(00) 00000-0000">
+                        </div>
                     </div>
-                </div>
 
-                <div class="campo-grupo">
-                    <label>Forma de Pagamento:</label>
-                    <select id="cliente-pagamento" required>
-                        <option value="Dinheiro">Dinheiro</option>
-                        <option value="Cartão">Cartão de Crédito/Débito</option>
-                        <option value="Pix">Pix</option>
-                    </select>
-                </div>
+                    <div id="campos-entrega" class="mui-secao-grupo">
+                        <h3>Endereço de Entrega</h3>
+                        <div class="mui-campo-wrapper">
+                            <label for="cliente-cep">CEP</label>
+                            <input type="text" id="cliente-cep" class="mui-input-field" placeholder="00000-000">
+                        </div>
+                        <div class="mui-campo-wrapper">
+                            <label for="cliente-endereco">Endereço Completo</label>
+                            <input type="text" id="cliente-endereco" class="mui-input-field" placeholder="Rua, Número, Bairro e Complemento">
+                        </div>
+                    </div>
 
-                <button type="submit" class="btn-finalizar-pedido">Enviar Pedido para o WhatsApp 🚀</button>
-            </form>
+                    <div class="mui-secao-grupo">
+                        <h3>Forma de Pagamento</h3>
+                        <div class="mui-campo-wrapper">
+                            <select id="cliente-pagamento" class="mui-select-field" required>
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="Cartão">Cartão de Crédito/Débito</option>
+                                <option value="Pix">Pix</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-finalizar-pedido mui-btn-principal w-100" style="margin-top: 10px; margin-bottom: 10px;">
+                        Enviar Pedido para o WhatsApp 🚀
+                    </button>
+                </form>
+
+            </div>
         </div>
     </div>
 

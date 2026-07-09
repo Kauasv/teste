@@ -541,3 +541,440 @@ body {
 .campo-grupo input:focus {
     border-color: #d6336c;
 }
+/* ==========================================================================
+   NOVOS ESTILOS DO POPUP (MODAL) - PADRÃO MATERIAL UI (MUI)
+   ========================================================================== */
+.modal-content.mui-card {
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(138,40,70,0.25);
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+    padding-bottom: 0; /* Controlado pelo footer fixo */
+}
+
+.modal-header-imagem {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.modal-header-imagem img.modal-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botão fechar redondo flutuante branco do modelo */
+.mui-btn-fechar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+    z-index: 12;
+}
+
+.mui-btn-fechar:hover {
+    background: #ffffff;
+}
+
+.mui-btn-fechar img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Pontinhos do Carrossel */
+.carrossel-indicadores {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.carrossel-indicadores .ponto {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carrossel-indicadores .ponto.ativo {
+    background-color: #ffffff;
+}
+
+/* Corpo de texto do produto */
+.modal-corpo-detalhes {
+    padding: 18px 20px 8px 20px;
+}
+
+.mui-linha-titulo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-content .mui-linha-titulo h2 {
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #8a2846;
+    font-family: 'Playfair Display', serif;
+}
+
+.mui-preco-destaque {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #d6336c;
+    white-space: nowrap;
+}
+
+/* Chips / Badges */
+.mui-chips-container {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 10px;
+}
+
+.mui-chip {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 22px;
+}
+
+.mui-chip.destaque {
+    background-color: #f7b733;
+    color: #5c3a00;
+}
+
+.mui-chip.info {
+    background-color: #fbe8ee;
+    color: #8a2846;
+    font-weight: 600;
+}
+
+.mui-chip.info img {
+    width: 12px;
+    height: 12px;
+}
+
+.mui-descricao {
+    color: #b98a9a !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+    padding: 0 !important;
+}
+
+.mui-divisor {
+    margin: 0 20px;
+    border-top: 1px solid #f3d9e2;
+}
+
+/* Área de Rolagem Interna do Modal */
+.modal-conteudo-selecionavel {
+    padding: 16px 20px 8px 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.mui-secao-grupo {
+    margin-bottom: 20px;
+}
+
+.modal-content .mui-secao-grupo h3 {
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #8a2846;
+    margin-bottom: 2px;
+}
+
+.mui-legenda {
+    font-size: 0.75rem;
+    color: #b98a9a;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Cards Selecionáveis (Tamanhos e Adicionais) */
+.mui-lista-opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mui-opcao-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border: 1px solid #f3d9e2;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.mui-opcao-card.selecionado {
+    border: 2px solid #d6336c;
+    background-color: #fbe8ee;
+}
+
+.mui-opcao-txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.mui-opcao-txt strong {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #8a2846;
+}
+
+.mui-opcao-txt span {
+    font-size: 0.75rem;
+    color: #b98a9a;
+}
+
+.mui-opcao-preco {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #d6336c;
+}
+
+/* Customização da renderização antiga do JS para se adequar ao novo layout */
+#listaAcrescimos label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border: 1px solid #f3d9e2;
+    border-radius: 12px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Estilização do Campo de Texto (TextField) */
+.mui-textfield {
+    width: 100%;
+    background-color: #fbe8ee;
+    border: 1px solid #f3d9e2;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: #8a2846;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+}
+
+.mui-textfield::placeholder {
+    color: #b98a9a;
+}
+
+/* Rodapé Fixo do Modal */
+.mui-footer-fixo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-top: 1px solid #f3d9e2;
+    background-color: #ffffff;
+    position: sticky;
+    bottom: 0;
+}
+
+.mui-qtd-seletor {
+    background: transparent;
+    border: 1px solid #f3d9e2;
+    border-radius: 10px;
+    padding: 6px 10px;
+    min-width: auto;
+    height: auto;
+    gap: 10px;
+}
+
+.mui-qtd-seletor .btn-qtd {
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mui-qtd-seletor .btn-qtd img {
+    width: 16px;
+    height: 16px;
+}
+
+.mui-qtd-seletor span {
+    color: #8a2846;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Botão principal de ação */
+.mui-btn-principal {
+    background-color: #d6336c;
+    border-radius: 10px;
+    padding: 12px;
+    height: auto;
+    font-size: 15px;
+    font-weight: 800;
+    justify-content: center;
+}
+
+.mui-btn-principal:hover {
+    background-color: #b02a5b;
+}
+
+.mui-btn-principal span strong {
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   ELEMENTOS EXCLUSIVOS DO DESIGN DO CARRINHO (MUI PADRÃO)
+   ========================================================================== */
+.mui-carrinho-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+}
+
+.mui-carrinho-titulo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #8a2846;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.mui-btn-fechar-checkout {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Container de resumo de totais */
+.mui-resumo-total-box {
+    background-color: #fbe8ee;
+    border: 1px solid #f3d9e2;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 5px 0;
+}
+
+.mui-resumo-total-box span {
+    font-weight: 700;
+    color: #8a2846;
+    font-size: 0.9rem;
+}
+
+.mui-resumo-total-box strong {
+    font-weight: 800;
+    color: #d6336c;
+    font-size: 1.15rem;
+}
+
+/* Opções de Envio (Cards Selecionáveis Dinâmicos) */
+.mui-envio-grupo {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.mui-radio-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #f3d9e2;
+    border-radius: 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #8a2846;
+    transition: all 0.2s ease;
+}
+
+.mui-radio-card input[type="radio"] {
+    accent-color: #d6336c;
+}
+
+/* Reestilização dos Campos de Texto do Formulário */
+.mui-campo-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.mui-campo-wrapper label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8a2846;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mui-input-field, .mui-select-field {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #f3d9e2;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #8a2846;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.mui-input-field:focus, .mui-select-field:focus {
+    border-color: #d6336c;
+    box-shadow: 0 0 0 2px rgba(214, 51, 108, 0.1);
+}
+
+.mui-input-field::placeholder {
+    color: #b98a9a;
+    font-size: 0.85rem;
+}
+
+/* Reset / Padronização do Botão Principal do Carrinho */
+.w-100 {
+    width: 100%;
+}
+x
