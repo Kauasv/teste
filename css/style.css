@@ -2,165 +2,363 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: #f5f5f5;
+    background: #f0f2f5;
     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
-/* ======================
-   TOPO
-====================== */
+/* ==========================================================================
+   CONTAINER E BARRA DO MODELO
+   ========================================================================== */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #fff8f5;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    padding-bottom: 80px; /* espaço para o menu inferior */
+}
+
+.barra-gradiente {
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #d6336c, #f7b733, #d6336c);
+}
+
+/* ==========================================================================
+   TOPO / HEADER
+   ========================================================================== */
 .topo {
-    background: linear-gradient(135deg, #d63384, #ff4fa0);
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 20px 12px 20px;
+    text-align: left;
 }
 
 .logo {
-    width: 90px;
-    height: 90px;
+    width: 64px;
+    height: 64px;
+    background-color: #d6336c;
+    border: 3px solid #f7b733;
     border-radius: 50%;
-    background: white;
-    padding: 5px;
-    object-fit: contain;
-    margin-bottom: 10px;
+    padding: 0;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+
+.loja-info {
+    flex: 1;
 }
 
 .topo h1 {
-    font-size: 28px;
-    margin-bottom: 5px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #8a2846;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 4px;
 }
 
-.topo p {
-    opacity: .95;
+.info-linha {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
 }
 
-/* ======================
+.info-linha img {
+    width: 16px;
+    height: 16px;
+}
+
+.info-linha p {
+    font-size: 0.875rem;
+    color: #8a2846;
+    opacity: 1;
+}
+
+/* ==========================================================================
+   STATUS E HORÁRIOS
+   ========================================================================== */
+.status-loja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 12px 20px;
+}
+
+.badge-aberto {
+    background-color: #e6f7ee;
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.horarios-gatilho {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.horarios-gatilho span {
+    font-size: 0.875rem;
+    color: #d6336c;
+    font-weight: 600;
+}
+
+.horarios-gatilho img {
+    width: 18px;
+    height: 18px;
+}
+
+/* ==========================================================================
    BANNER
-====================== */
+   ========================================================================== */
 .banner {
-    padding: 15px;
-    max-width: 1200px;
-    margin: auto;
+    padding: 0 20px 12px 20px;
 }
 
 .banner img {
     width: 100%;
-    height: 220px;
-    border-radius: 15px;
+    height: 140px;
+    border-radius: 14px;
     object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    box-shadow: 0 2px 10px rgba(214,51,108,0.12);
 }
 
-/* ======================
+/* ==========================================================================
    PESQUISA
-====================== */
+   ========================================================================== */
 .pesquisa {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 15px 15px;
+    padding: 0 20px 16px 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #f3d9e2;
+    border-radius: 30px;
+    padding: 10px 16px;
+}
+
+.input-wrapper img {
+    width: 20px;
+    height: 20px;
 }
 
 .pesquisa input {
     width: 100%;
-    padding: 14px 18px;
-    border: 1px solid #ddd;
-    border-radius: 30px;
-    font-size: 15px;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
     outline: none;
+    color: #333;
+    background: transparent;
 }
 
-/* ======================
-   CATEGORIAS
-====================== */
+.pesquisa input::placeholder {
+    color: #b98a9a;
+}
+
+/* Título de Seções */
+.secao-titulo {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #8a2846;
+    padding: 12px 20px 8px 20px;
+}
+
+/* ==========================================================================
+   CATEGORIAS (RENDERIZADAS PELO JS)
+   ========================================================================== */
 .categorias {
     display: flex;
     gap: 10px;
     overflow-x: auto;
-    padding: 0 15px 15px;
+    padding: 0 20px 8px 20px;
     scrollbar-width: none;
 }
 
-.categorias::-webkit-scrollbar {
-    display: none;
-}
-
+/* Botões criados dinamicamente via JS na div #categorias */
 .categorias button {
     border: none;
-    background: white;
-    padding: 10px 18px;
-    border-radius: 25px;
+    background: #fbe8ee;
+    color: #8a2846;
+    padding: 6px 16px;
+    border-radius: 16px;
     cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
-    transition: .2s;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    box-shadow: none;
+    transition: 0.2s;
 }
 
-.categorias button:hover {
-    background: #d63384;
-    color: white;
+.categorias button:hover, .categorias button.ativo {
+    background: #d6336c;
+    color: #ffffff;
+    font-weight: 700;
 }
 
-/* ======================
-   PRODUTOS
-====================== */
+/* ==========================================================================
+   PRODUTOS GRID (RENDERIZADOS PELO JS)
+   ========================================================================== */
 .grid {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
+/* Estrutura dos cards injetados na div #produtos */
 .produto-item {
     background: white;
-    border-radius: 15px;
+    border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
-    transition: .25s;
-    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    box-shadow: 0 2px 10px rgba(214,51,108,0.12);
+    display: flex;
+    flex-direction: column;
+    border: none;
+    transition: transform 0.2s;
 }
 
 .produto-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+    transform: none;
+}
+
+.wrapper-imagem-card {
+    position: relative;
+    width: 100%;
 }
 
 .produto-item img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
 }
 
+/* Botão de adicionar simulando o IconButton verde do modelo */
+.btn-add-card-simulado {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: #2e7d32;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 .produto-info {
-    padding: 15px;
+    padding: 12px;
 }
 
 .produto-info h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #8a2846;
+    margin-bottom: 4px;
 }
 
 .produto-info p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 12px;
-    min-height: 40px;
+    color: #b98a9a;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    min-height: auto;
+    line-height: 1.3;
 }
 
 .produto-info strong {
-    color: #d63384;
-    font-size: 22px;
+    color: #d6336c;
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
-/* ======================
-   MODAL (ESTRUTURA PRINCIPAL)
-===================== */
+/* ==========================================================================
+   MENU INFERIOR FIXO DO MODELO
+   ========================================================================== */
+.menu-inferior-fixo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    border-top: 1px solid #f3d9e2;
+    background-color: #ffffff;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.menu-aba {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-aba img {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-aba span {
+    font-size: 0.75rem;
+    color: #b98a9a;
+    margin-top: 2px;
+}
+
+.menu-aba.ativo span {
+    color: #d6336c;
+    font-weight: 700;
+}
+
+.wrapper-icone-carrinho {
+    position: relative;
+}
+
+.badge-contador {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #d6336c;
+    color: white;
+    font-size: 10px;
+    border-radius: 10px;
+    padding: 1px 5px;
+    font-weight: bold;
+}
+
+/* Ocultar botão flutuante padrão se o menu inferior cuida do carrinho */
+#btn-carrinho-flutuante {
+    display: none !important;
+}
+
+/* ==========================================================================
+   MODAL E ELEMENTOS DE CHECKOUT
+   ========================================================================== */
 .modal {
     display: none;
     position: fixed;
@@ -168,336 +366,178 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.65);
+    background: rgba(0,0,0,.5);
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    padding: 15px;
 }
 
 .modal-content {
     background: white;
-    width: 95%;
-    max-width: 500px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 18px;
     overflow: hidden;
     position: relative;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Botão fechar (X) fixado com fundo transparente para contraste */
 .modal-content .fechar {
     position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 26px;
+    right: 12px;
+    top: 12px;
+    font-size: 22px;
     cursor: pointer;
     color: white;
-    background: rgba(0, 0, 0, 0.45);
-    width: 36px;
-    height: 36px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1;
     z-index: 10;
-    font-weight: bold;
-    transition: background 0.2s;
 }
 
-.modal-content .fechar:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content img {
+.modal-content img.modal-imagem {
     width: 100%;
-    height: 280px;
+    height: 200px;
     object-fit: cover;
 }
 
 .modal-content h2 {
-    padding: 15px 20px 5px;
+    padding: 15px 20px 4px;
+    font-size: 1.15rem;
+    color: #8a2846;
+    font-weight: 800;
 }
 
 .modal-content p {
     padding: 0 20px;
-    color: #666;
+    color: #b98a9a;
+    font-size: 0.85rem;
 }
 
 .modal-content h3 {
-    padding: 10px 20px 5px;
+    padding: 5px 20px;
+    font-size: 0.95rem;
+    color: #8a2846;
 }
 
-hr {
-    margin: 15px 20px;
-    border: none;
-    border-top: 1px solid #eee;
-}
-
-#listaAcrescimos {
-    padding: 0 20px 10px;
-}
-
-#listaAcrescimos label {
-    display: block;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 15px;
-    color: #444;
-    cursor: pointer;
-}
-
-/* ======================
-   RODAPÉ UNIFICADO (ESTILO CARDAPIO.AI)
-===================== */
+/* Rodapé do Modal unificado */
 .modal-footer-unificado {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 20px 20px;
+    padding: 12px 20px 20px;
     background: white;
 }
 
-/* Container da Quantidade [ - 1 + ] */
 .quantidade-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f1f3f5;
+    background: #fbe8ee;
     border-radius: 10px;
-    padding: 6px;
-    min-width: 120px;
-    height: 50px;
+    padding: 4px;
+    min-width: 110px;
+    height: 44px;
 }
 
 .btn-qtd {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border: none;
     background: white;
-    color: #333;
-    font-size: 18px;
+    color: #8a2846;
+    font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-qtd:active {
-    background: #e9ecef;
 }
 
 .quantidade-container span {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    min-width: 24px;
-    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #8a2846;
 }
 
-/* Botão de Adicionar Completo com Preço embutido */
 .btn-adicionar-carrinho {
     flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #d63384;
+    background: #d6336c;
     color: white;
     border: none;
-    height: 50px;
-    padding: 0 20px;
+    height: 44px;
+    padding: 0 16px;
     border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .btn-adicionar-carrinho:hover {
-    background: #c22475;
+    background: #b52658;
 }
 
-.btn-adicionar-carrinho strong {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* ======================
-   MOBILE REGRAS
-====================== */
-@media(max-width: 768px) {
-    .topo h1 {
-        font-size: 22px;
-    }
-    .banner img {
-        height: 180px;
-    }
-    .produto-item img {
-        height: 180px;
-    }
-}
-/* ======================
-   CARRINHO FLUTUANTE
-====================== */
-#btn-carrinho-flutuante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366; /* Verde WhatsApp para chamar atenção */
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
-    z-index: 999;
-}
-
-/* ======================
-   ESTILOS EXCLUSIVOS DO CHECKOUT
-====================== */
+/* Checkout */
 .checkout-content {
     padding: 20px;
-}
-
-.checkout-content h2 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 15px;
 }
 
 .item-checkout-linha {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f8f9fa;
+    background: #fff8f5;
     padding: 12px;
     border-radius: 10px;
     margin-bottom: 10px;
-    border: 1px solid #eee;
-}
-
-.item-checkout-info h4 {
-    font-size: 15px;
-    margin-bottom: 2px;
-}
-
-.item-checkout-info small {
-    display: block;
-    color: #777;
-    margin-bottom: 4px;
-}
-
-.item-checkout-info span {
-    color: #d63384;
-    font-weight: bold;
-}
-
-.item-checkout-acoes {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.qtd-checkout-controle {
-    display: flex;
-    background: #e9ecef;
-    border-radius: 6px;
-    padding: 3px;
-    align-items: center;
-}
-
-.qtd-checkout-controle button {
-    border: none;
-    background: white;
-    width: 26px;
-    height: 26px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.qtd-checkout-controle span {
-    padding: 0 8px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.btn-remover-item {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+    border: 1px solid #f3d9e2;
 }
 
 .total-checkout-box {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 15px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #8a2846;
 }
 
 .total-checkout-box strong {
-    color: #d63384;
-}
-
-.opcao-envio {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 15px;
-}
-
-.opcao-envio label {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.campo-grupo {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
-
-.campo-grupo label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.campo-grupo input, .campo-grupo select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    color: #d6336c;
 }
 
 .btn-finalizar-pedido {
     width: 100%;
-    background: #d63384;
+    background: #2e7d32; /* Cor de sucesso para o envio */
     color: white;
     border: none;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 15px;
 }
 
 .btn-finalizar-pedido:hover {
-    background: #c22475;
+    background: #256427;
 }
 
-.carrinho-vazio {
-    text-align: center;
-    color: #888;
-    padding: 20px 0;
+.campo-grupo input, .campo-grupo select {
+    padding: 10px;
+    border: 1px solid #f3d9e2;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+}
+
+.campo-grupo input:focus {
+    border-color: #d6336c;
 }

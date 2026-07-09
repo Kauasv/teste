@@ -3,40 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confeitaria Teste</title>
+    <title>Doce Encanto Confeitaria</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="topo">
-        <img src="img/pngwing.com.png" class="logo" alt="Logo da confeitaria">
-        <div class="loja-info">
-            <h1>Confeitaria Teste</h1>
-            <p>Os melhores bolos da cidade 🍰</p>
+    <div class="app-container">
+        
+        <div class="barra-gradiente"></div>
+
+        <header class="topo">
+            <img src="img/pngwing.com.png" class="logo" alt="Logo da confeitaria">
+            <div class="loja-info">
+                <h1>Doce Encanto Confeitaria</h1>
+                
+                <div class="info-linha">
+                    <img src="https://api.iconify.design/mdi/map-marker.svg?color=%23d6336c" alt="Localização">
+                    <p>Rua das Flores, 120, Jardim Doce, Betim - MG</p>
+                </div>
+                <div class="info-linha">
+                    <img src="https://api.iconify.design/mdi/currency-usd.svg?color=%23d6336c" alt="Pedido mínimo">
+                    <p>Pedido mínimo R$ 25,00</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="status-loja">
+            <span class="badge-aberto">Aberto</span>
+            <div class="horarios-gatilho">
+                <span>Ver horários</span>
+                <img src="https://api.iconify.design/mdi/chevron-down.svg?color=%23d6336c" alt="Ver horários">
+            </div>
         </div>
-    </header>
 
-    <main>
-        <section class="banner">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x3dj2UVkmXq5gLz072pKa1pu01xYSVIcV3hvakCbiw&s=1024" class="banner-img" alt="Banner">
-        </section>
+        <main>
+            <section class="banner">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x3dj2UVkmXq5gLz072pKa1pu01xYSVIcV3hvakCbiw&s=1024" class="banner-img" alt="Banner">
+            </section>
 
-        <section class="pesquisa">
-            <input type="text" id="busca" placeholder="🔍 Pesquisar produto...">
-        </section>
+            <section class="pesquisa">
+                <div class="input-wrapper">
+                    <img src="https://api.iconify.design/mdi/magnify.svg?color=%23d6336c" alt="Pesquisar">
+                    <input type="text" id="busca" placeholder="Pesquisar...">
+                </div>
+            </section>
 
-        <section id="categorias" class="categorias"></section>
-        <section id="produtos" class="grid"></section>
-    </main>
+            <h2 class="secao-titulo">Categorias</h2>
+            <section id="categorias" class="categorias"></section>
+            
+            <h2 class="secao-titulo">Destaques</h2>
+            <section id="produtos" class="grid"></section>
+        </main>
 
-    <button id="btn-carrinho-flutuante" onclick="abrirCheckout()">
-        🛒 Ver Carrinho (<span id="contador-carrinho">0</span>)
+        <div class="menu-inferior-fixo">
+            <div class="menu-aba ativo">
+                <img src="https://api.iconify.design/mdi/format-list-bulleted.svg?color=%23d6336c" alt="Itens">
+                <span>Itens</span>
+            </div>
+            <div class="menu-aba" onclick="document.getElementById('busca').focus()">
+                <img src="https://api.iconify.design/mdi/magnify.svg?color=%23b98a9a" alt="Buscar">
+                <span>Buscar</span>
+            </div>
+            <div class="menu-aba" onclick="abrirCheckout()">
+                <div class="wrapper-icone-carrinho">
+                    <img src="https://api.iconify.design/mdi/clipboard-text-outline.svg?color=%23b98a9a" alt="Pedidos">
+                    <span id="contador-carrinho" class="badge-contador">0</span>
+                </div>
+                <span>Pedidos</span>
+            </div>
+        </div>
+
+    </div> <button id="btn-carrinho-flutuante" onclick="abrirCheckout()">
+        🛒 Ver Carrinho
     </button>
 
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="fechar" onclick="fecharModal()">&times;</span>
-            <img id="modalImagem" class="modal-imagem" alt="Produto">
+            <div class="wrapper-imagem-modal">
+                <img id="modalImagem" class="modal-imagem" alt="Produto">
+            </div>
             <h2 id="modalNome"></h2>
             <p id="modalDescricao"></p>
             <hr>
