@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Painel Administrativo</h1>
+
+        <input id="nome" placeholder="Nome do produto">
+        <textarea id="descricao" placeholder="Descrição"></textarea>
+        <input id="preco" type="number" placeholder="Preço">
+
+        <select id="categoria">
+            <option>Bolos</option>
+            <option>Tortas</option>
+            <option>Doces</option>
+        </select>
+
+        <input id="imagem" placeholder="bolo-chocolate.jpg">
+
+        <h3>Acréscimos</h3>
+        <div id="listaAcrescimos"></div>
+
+        <button type="button" onclick="adicionarAcrescimo()">+ Adicionar acréscimo</button>
+        <button id="salvar">Salvar Produto</button>
+
+        <hr>
+
+        <h2>Produtos</h2>
+        <div id="lista"></div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

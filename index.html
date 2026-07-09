@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Teste</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topo">
+        <img src="img/pngwing.com.png" class="logo" alt="Logo da confeitaria">
+        <div class="loja-info">
+            <h1>Confeitaria Teste</h1>
+            <p>Os melhores bolos da cidade 🍰</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x3dj2UVkmXq5gLz072pKa1pu01xYSVIcV3hvakCbiw&s=1024" class="banner-img" alt="Banner">
+        </section>
+
+        <section class="pesquisa">
+            <input type="text" id="busca" placeholder="🔍 Pesquisar produto...">
+        </section>
+
+        <section id="categorias" class="categorias"></section>
+        <section id="produtos" class="grid"></section>
+    </main>
+
+    <button id="btn-carrinho-flutuante" onclick="abrirCheckout()">
+        🛒 Ver Carrinho (<span id="contador-carrinho">0</span>)
+    </button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <img id="modalImagem" class="modal-imagem" alt="Produto">
+            <h2 id="modalNome"></h2>
+            <p id="modalDescricao"></p>
+            <hr>
+            <h3>Adicionais</h3>
+            <div id="listaAcrescimos" class="lista-adicionais"></div>
+            <hr>
+            <div class="modal-footer-unificado">
+                <div class="quantidade-container">
+                    <button type="button" class="btn-qtd" onclick="diminuirQtd()">-</button>
+                    <span id="qtd">1</span>
+                    <button type="button" class="btn-qtd" onclick="aumentarQtd()">+</button>
+                </div>
+                <button class="btn-adicionar-carrinho" onclick="adicionarCarrinho()">
+                    <span>Adicionar ao Carrinho</span>
+                    <strong id="totalProduto">R$ 0,00</strong>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCheckout" class="modal">
+        <div class="modal-content checkout-content">
+            <span class="fechar" onclick="fecharCheckout()">&times;</span>
+            <h2>Seu Carrinho</h2>
+            
+            <div id="itens-carrinho-lista"></div>
+            
+            <div class="total-checkout-box">
+                <span>Total dos Produtos:</span>
+                <strong id="total-geral-checkout">R$ 0,00</strong>
+            </div>
+
+            <hr>
+
+            <h2>Forma de Envio</h2>
+            <div class="opcao-envio">
+                <label><input type="radio" name="tipoEnvio" value="entrega" checked onchange="alternarFormulario()"> 🛵 Entrega</label>
+                <label><input type="radio" name="tipoEnvio" value="retirada" onchange="alternarFormulario()"> 🛍️ Retirar no Local</label>
+            </div>
+
+            <form id="form-pedido" onsubmit="event.preventDefault(); finalizarPedido();">
+                <div class="campo-grupo">
+                    <label>Nome Completo:</label>
+                    <input type="text" id="cliente-nome" required placeholder="Digite seu nome">
+                </div>
+                
+                <div class="campo-grupo">
+                    <label>Telefone de Contato:</label>
+                    <input type="tel" id="cliente-telefone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div id="campos-entrega">
+                    <div class="campo-grupo">
+                        <label>CEP:</label>
+                        <input type="text" id="cliente-cep" placeholder="00000-000">
+                    </div>
+                    <div class="campo-grupo">
+                        <label>Endereço Completo (Rua, Número, Bairro):</label>
+                        <input type="text" id="cliente-endereco" placeholder="Ex: Rua das Flores, 123 - Bairro Centro">
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label>Forma de Pagamento:</label>
+                    <select id="cliente-pagamento" required>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão">Cartão de Crédito/Débito</option>
+                        <option value="Pix">Pix</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-finalizar-pedido">Enviar Pedido para o WhatsApp 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
